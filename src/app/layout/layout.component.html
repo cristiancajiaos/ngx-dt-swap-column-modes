@@ -1,10 +1,30 @@
 <div class="row">
+  <div class="col-12 col-lg-4">
+    <div class="form-group">
+      <label>Column Mode</label>
+      <select class="form-control" [(ngModel)]="mode">
+        <option *ngFor="let selectMode of selectModes" [value]="selectMode.value">
+          {{selectMode.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<p>Mode: {{mode | json}}</p>
+
+<hr/>
+
+<div class="row">
   <div class="col-12">
     <ngx-datatable
       #tablaPrueba
       class="bootstrap"
       [rows]="filas"
       [columns]="columnas"
+      [columnMode]="mode"
       [headerHeight]="30"
       [footerHeight]="50"
       [rowHeight]="50"

@@ -146,7 +146,17 @@ export class LayoutComponent implements OnInit {
   columnaFlex = ColumnMode.flex;
   columnaForce = ColumnMode.force;
 
+  selectModes = [
+    { name: 'Standard', value: this.columnaStandard },
+    { name: 'Flex', value: this.columnaFlex },
+    { name: 'Force', value: this.columnaForce}
+  ];
+
+  mode: ColumnMode;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.mode = this.selectModes[1].value;
+  }
 }
